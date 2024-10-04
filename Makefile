@@ -10,6 +10,8 @@ SRC = $(DOC).tex
 # Define the output PDF file
 PDF = $(DOC).pdf
 
+VIEWER = okular
+
 # Define the auxiliary files to clean up
 AUX_FILES = $(DOC).aux $(DOC).log $(DOC).out $(DOC).toc $(DOC).fls $(DOC).fdb_latexmk
 
@@ -32,3 +34,5 @@ cleanall: clean
 # Specify the .PHONY targets
 .PHONY: all clean cleanall
 
+view: $(PDF)
+	$(VIEWER) $(PDF) &
