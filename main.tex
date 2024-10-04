@@ -1,0 +1,91 @@
+% LuaLatex template for Einkommen aus Selbständiger Arbeit
+% 2024-10-04
+\documentclass[11pt,a4paper,DIV=10]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage{tabularray}
+\usepackage{booktabs}
+\usepackage{fontspec} % important for LuaLaTeX
+\usepackage{unicode-math}
+\UseTblrLibrary{booktabs}
+
+% Schriftart festlegen
+\setmainfont{Bitstream Charter}
+%\setsansfont{Bitstream Charter}
+
+% Lua-Definitionen: Variablen laden
+% remember to double escape Latex Commands
+\directlua{
+  variables = {
+    ["EngagementsNr"] =
+        "2024-0x",
+    ["RechnungsNr"] = 
+        "MH24-0x",
+    ["Vertrag"] = 
+        "Anfrage via E-Mail",
+    ["Anlass"] = 
+        "Komponist: Werk",
+    ["Veranstalter"] = 
+        "Veranstalter\\\\Strassenname\\,123\\\\12345 Ort",
+    ["Proben"] =
+        "Sonntag, 22.\\,September 2024, 13:00 -- 16:30 Uhr",
+    ["Auffuehrung"] =
+        "Sonntag, 22.\\,September 2024, 17:00 -- 18:30 Uhr",
+    ["Ort"] =
+        "Aufführungsort",
+    ["Honorar"] =
+        "Honorar EUR",
+    ["RechnungGesendet"] =
+        "Rechnung gesendet am:",
+    ["BetragErhalten"] = 
+        "27.09.2024, comdirect, 4427089059",
+    ["Gefahrenekm"] =
+        "252\\,km",
+    ["Abfahrtszeit"] =
+        "Abfahrtsziet vom Heimatort",
+    ["Ankunftszeit"] = 
+        "Ankunftszeit am Heimatort",
+    ["Programmheft"] = 
+        "Exemplar vorhanden",
+    ["Sonstiges"] = 
+        "Sonstiges\\\\Noch mehr sonstiges",
+  }
+}
+
+% Lua-Funktion zum Abrufen der Variablenwerte
+\newcommand{\getVar}[1]{\directlua{tex.print(variables["#1"])}}
+
+\begin{document}
+\pagestyle{empty} %getting rid of page numbers
+
+\textbf{\Large{Einkommen aus selbständiger Arbeit 2024}}\\[20pt]
+
+\noindent
+\begin{tblr}{
+        cell{-}{1} = {font=\bfseries},
+        colsep = 6mm
+    }
+Laufende Engagements-Nr.        & \getVar{EngagementsNr}\\
+Rechnungs-Nr.                   & \getVar{RechnungsNr}\\
+Schriftlicher Vertrag           & \getVar{Vertrag}\bigskip\\
+
+Anlass / Komponist / Werk       & \getVar{Anlass}\\
+Veranstalter                    & \getVar{Veranstalter}\\
+
+Proben                          & \getVar{Proben}\\
+Aufführung                      & \getVar{Auffuehrung}\\
+Ort                             & \getVar{Ort} \bigskip\\
+
+Honorar                         & \getVar{Honorar}\\
+%Rechnung gesendet               & \getVar{RechnungGesendet}\\
+Betrag erhalten                 & \getVar{BetragErhalten} \bigskip\\
+
+Gefahrene km                    & \getVar{Gefahrenekm}\\
+%Abfahrtszeit Heimatsort         & \getVar{Abfahrtszeit}\\
+%Ankunft zu Hause                & \getVar{Ankunftszeit}\\
+Programmheft                    & \getVar{Programmheft} \bigskip\\
+
+Sonstiges                       & \getVar{Sonstiges}\\
+
+\end{tblr}
+\end{document}
+
