@@ -1,0 +1,21 @@
+
+% setup.tex
+% 
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+\usepackage{luacode}
+\usepackage{tabularray}
+
+\usepackage{booktabs}
+\usepackage{unicode-math}
+\UseTblrLibrary{booktabs}
+
+% Schriftart festlegen
+\usepackage{fontspec} % important for LuaLaTeX
+\setmainfont{Bitstream Charter}
+\setsansfont{Roboto}
+% Lua-Funktion zum Abrufen der Variablenwerte
+\newcommand{\getVar}[1]{\directlua{tex.print(#1)}}
+
+\pagestyle{empty} %getting rid of page numbers
