@@ -4,17 +4,18 @@
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 
+\usepackage{fontspec} % important for LuaLaTeX
+\setmainfont{Bitstream Charter}
+\setsansfont{Roboto}
+
 \usepackage{luacode}
 \usepackage{tabularray}
 
 \usepackage{booktabs}
-\usepackage{unicode-math}
+%\usepackage{unicode-math}
 \UseTblrLibrary{booktabs}
-
+\usepackage{eurosym}
 % Schriftart festlegen
-\usepackage{fontspec} % important for LuaLaTeX
-\setmainfont{Bitstream Charter}
-\setsansfont{Roboto}
 % Lua-Funktion zum Abrufen der Variablenwerte
 \newcommand{\getVar}[1]{\directlua{tex.print(#1)}}
 
