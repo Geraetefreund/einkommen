@@ -1,12 +1,11 @@
 % LuaLatex template for Einkommen aus Selbständiger Arbeit
-% 2024-10-04
+% 2024-11-16
 \documentclass[11pt,a4paper,DIV=10]{scrartcl}
 \input{setup.tex}
 \begin{document}
 % Lua-Definitionen: Variablen laden
 % remember to double escape Latex Commands
 \begin{luacode}
-    Titel = "Einkommen aus selbständiger Arbeit 2024"
     EngagementsNr = "2024-0x"
     RechnungsNr = "MH24-0x"
     Vertrag = "Anfrage via E-Mail"
@@ -24,34 +23,5 @@
     Programmheft = "Exemplar vorhanden"
     Sonstiges = "Sonstiges\\\\Noch mehr sonstiges"
 \end{luacode}
-
-
-\textbf{\Large{\getVar{Titel}}}\\[20pt]
-
-\begin{tblr}{cell{-}{1} = {font=\bfseries}, colsep = 6mm}
-
-Laufende Engagements-Nr.        & \getVar{EngagementsNr}\\
-Rechnungs-Nr.                   & \getVar{RechnungsNr}\\
-Schriftlicher Vertrag           & \getVar{Vertrag}\bigskip\\
-
-Anlass / Komponist / Werk       & \getVar{Anlass}\\
-Veranstalter                    & \getVar{Veranstalter}\\
-
-Proben                          & \getVar{Proben}\\
-Aufführung                      & \getVar{Auffuehrung}\\
-Ort                             & \getVar{Ort} \bigskip\\
-
-Honorar                         & \getVar{Honorar}\\
-%Rechnung gesendet               & \getVar{RechnungGesendet}\\
-Betrag erhalten                 & \getVar{BetragErhalten} \bigskip\\
-
-Gefahrene km                    & \getVar{Gefahrenekm}\\
-%Abfahrtszeit Heimatsort         & \getVar{Abfahrtszeit}\\
-%Ankunft zu Hause                & \getVar{Ankunftszeit}\\
-Programmheft                    & \getVar{Programmheft} \bigskip\\
-
-Sonstiges                       & \getVar{Sonstiges}\\
-
-\end{tblr}
 \end{document}
 
